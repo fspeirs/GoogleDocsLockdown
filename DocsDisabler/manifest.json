@@ -1,0 +1,24 @@
+{
+  "manifest_version": 2,
+
+  "name": "Google Docs Lockdown",
+  "description": "This extension will delete important elements from Google Docs.",
+  "version": "1.0",
+
+  "browser_action": {
+    "default_icon": "icon.png"
+  },
+  "background": {
+    "scripts": ["popup.js"]
+  },
+  "permissions": ["tabs", "webNavigation", "storage"],
+  "content_scripts": [
+  {
+    "matches": [
+      "https://docs.google.com/document/d/*"
+    ],
+    "js": ["lockdown.js"],
+    "run_at" : "document_idle"
+  }
+]
+}
