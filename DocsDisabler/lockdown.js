@@ -36,7 +36,7 @@ function saveLockdownStatus() {
 
 
 function interceptContextMenu() {
-	$(".kix-zoomdocumentplugin-inner").contextmenu(function() {
+	$(document).contextmenu(function() {
 		return false;
 	});
 }
