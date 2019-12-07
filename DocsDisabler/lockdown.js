@@ -4,7 +4,7 @@ chrome.runtime.onMessage.addListener(
     if (request.message === 'checkForPriorLockdown') {
       chrome.storage.local.get(['priorLockdown'], function(result) {
         console.log("Prior lockdown: " + result.priorLockdown);
-        if(result.priorlockdown === 'undefined') {
+        if(result.priorLockdown == undefined) {
           console.log("Lockdown status not defined.")
         } else {
           lockdown();
@@ -29,7 +29,7 @@ function removeBySelector(s) {
 }
 
 function saveLockdownStatus() {
-	chrome.storage.local.set({'priorLockdown': "1"}, function() {
+	chrome.storage.local.set({'priorLockdown': '1'}, function() {
 		console.log("Saved lockdown status")
 	});
 }
