@@ -3,7 +3,7 @@
 
   "name": "Google Docs Lockdown",
   "description": "This extension will delete important elements from Google Docs.",
-  "version": "1.2",
+  "version": "1.3",
 
   "browser_action": {
     "default_icon": "icon.png",

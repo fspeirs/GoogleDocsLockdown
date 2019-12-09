@@ -51,7 +51,7 @@ function lockdown() {
 						  "insertLinkButton"];
 				  
 	// These elements should only be hidden if spelling is off.
-	var spelling_elements = ["spellGrammarCheckButton"];
+	var spelling_elements = [];//["spellGrammarCheckButton"];
 	var insert_elements = ["docs-insert-menu"];
 
 	var elements_to_remove = general_elements.concat(spelling_elements).concat(insert_elements);
