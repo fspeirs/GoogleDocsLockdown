@@ -1,3 +1,5 @@
+var spelling_on = false;
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     // listen for messages sent from background.js
@@ -51,7 +53,12 @@ function lockdown() {
 						  "insertLinkButton"];
 				  
 	// These elements should only be hidden if spelling is off.
-	var spelling_elements = [];//["spellGrammarCheckButton"];
+	var spelling_elements = ["spellGrammarCheckButton"];
+	if(spelling_on) {
+		// If spelling should be turned on, we should NOT remove spellGrammarCheckButton
+		spelling_elements = [];
+	}
+
 	var insert_elements = ["docs-insert-menu"];
 
 	var elements_to_remove = general_elements.concat(spelling_elements).concat(insert_elements);
@@ -77,8 +84,9 @@ function lockdown() {
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
-      console.log("Starting deletion of elements.")
-      lockdown();
+		spelling_on = request.spelling_on;
+		console.log("Starting deletion of elements.")
+		lockdown();
     }
   }
 );
