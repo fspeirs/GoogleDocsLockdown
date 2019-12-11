@@ -11,6 +11,10 @@ While some of this can be achieved by the GSuite admin console, many features in
 
 This Chrome extension attempts to solve this problem by modifying the Google Docs DOM to remove the elements that represent the controls for these features. The practical effect of this is that, once set up, there are no controls for the Spell Check settings to be re-enabled.
 
+## Deployment Guide
+
+Please [see this public Google Doc](https://docs.google.com/document/d/1cFLz-_zlEUEKxA6KmXJ093HlalaMHTtCF5X2LY3OF-c/edit#) for an extensive explanation of deploying this extension to school-managed Chromebooks.
+
 ## Contact
 
 The author of this extension is Fraser Speirs, Head Teacher, [Cedars School of Excellence](http://cedars.inverclyde.sch.uk).
