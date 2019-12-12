@@ -10,6 +10,16 @@
     	color: blue;
     	font-size: 15px;
     }
+    .fail {
+    	color: red;
+    	font-size: 10px;
+    	display: none;
+    }
+    .success {
+    	color: green;
+    	font-size: 10px;
+    	display: none;
+    }
     </style>
     <script src="jquery-3.4.1.js"></script>
   </head>
@@ -23,7 +33,11 @@
     <div id="buttons">
     <button id="checkPage">Lockdown!</button>
     <button id="unlock">Unlock</button> 
+	<button id="testpasscode">Test</button> 
 	</div>
+	<div id="unlockfail" class="fail"><p>Unlock failed.</p></div>
+	<div id="unlocksuccess" class="success"><p>Unlocked. Reload to complete.</p></div>
+	<div id="lockdownfail" class="fail"><p>Lockdown failed. Document already locked.</p></div>
     <script src="./popup.js"></script>
 
   </body>
