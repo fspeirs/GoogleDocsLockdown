@@ -9,6 +9,7 @@ function lock_page() {
 }
 
 document.querySelector('#checkPage').addEventListener('click', function() { lock_page(); });
+document.querySelector('#unlock').addEventListener('click', function() { chrome.storage.local.clear(); });
 
 $('#spelling').on('click', function() {
 	spelling_on = !spelling_on;
