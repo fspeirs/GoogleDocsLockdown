@@ -1,4 +1,5 @@
 var spelling_on = false;
+var passcode = "";
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -81,12 +82,40 @@ function lockdown() {
 	saveLockdownStatus();
 }
 
+function passcodeIsSet() {
+	var passcode = undefined;
+	chrome.storage.local.get(['passcode'], function(result) {
+		passcode = result.passcode;
+	});
+
+	return passcode != undefined;
+}
+
+function verifyPasscode(pc) {
+	var passcode = undefined;
+	chrome.storage.local.get(['passcode'], function(result) {
+		passcode = result.passcode;
+	});
+	return passcode === pc;
+}
+
+function storePasscode(pc) {
+	chrome.storage.local.set({'passcode': pc}, function() {
+		console.log('saved passcode: ' + pc);
+	});
+}
+
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
     if( request.message === "clicked_browser_action" ) {
 		spelling_on = request.spelling_on;
+	    
 		console.log("Starting deletion of elements.")
 		lockdown();
+	    storePasscode(request.passcode);
     }
+	  else if(request.message === "clicked_unlock_action") {
+		
+	  }
   }
 );
