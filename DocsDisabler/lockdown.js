@@ -44,7 +44,7 @@ function saveLockdownStatus() {
 }
 
 function interceptContextMenu() {
-	$(".kix-zoomdocumentplugin-inner").contextmenu(function() {
+	$(".kix-canvas-tile-content").contextmenu(function() {
 		return false;
 	});
 }
