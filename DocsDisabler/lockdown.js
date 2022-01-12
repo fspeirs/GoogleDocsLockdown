@@ -83,7 +83,13 @@ function lockdown() {
 	}
 	
 	// Remove elements by class
-	var elements_by_class = ["companion-app-switcher-container"];
+	var elements_by_class = ["companion-app-switcher-container", // Maps, Calendar switcher
+
+							];
+							
+	// Here, possibly also add classes "docs-explore-sidebar" (Explore panel) and "docs-dictionary-sidebar" (Dictionary Panel)
+	// but these elements only exist in the document once activated.
+							
 	for(var i=0; i < elements_by_class.length; i++) {
 		removeElementsByClass(elements_by_class[i]);
 	}
