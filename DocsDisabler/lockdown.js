@@ -23,6 +23,13 @@ function removeElement(e) {
   console.log("Deleted: " + e);
 }
 
+function removeElementsByClass(className){
+    const elements = document.getElementsByClassName(className);
+    while(elements.length > 0){
+        elements[0].parentNode.removeChild(elements[0]);
+    }
+}
+
 function removeBySelector(s) {
 	console.log("Hiding by selector: " + s);
 	var element = document.querySelector(s);
@@ -74,7 +81,12 @@ function lockdown() {
 	for (var i=0; i < query_selector_elements.length; i++) {
 		removeBySelector(query_selector_elements[i]);
 	}
-
+	
+	// Remove elements by class
+	var elements_by_class = ["companion-app-switcher-container"];
+	for(var i=0; i < elements_by_class.length; i++) {
+		removeElementsByClass(elements_by_class[i]);
+	}
 	interceptContextMenu();
 	
 	saveLockdownStatus();
