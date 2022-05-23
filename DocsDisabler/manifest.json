@@ -10,7 +10,7 @@
     "default_popup": "index.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "service_worker": "background.js"
   },
   "permissions": ["tabs", "webNavigation", "storage"],
   "content_scripts": [
